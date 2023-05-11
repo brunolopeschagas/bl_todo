@@ -1,6 +1,5 @@
 import '../model/todo.dart';
 import '../service/todo_service.dart';
-import 'package:flutter/material.dart';
 
 class TodoController {
   TodoService? _todoService;
@@ -12,20 +11,13 @@ class TodoController {
 
   List<Todo> get todos => _todos;
 
-  void add(BuildContext context, String title) {
+  void add(String title) {
     if (title.isNotEmpty) {
       var todo = Todo(
         title: title,
       );
       _todoService?.add(todo);
       _todos.add(todo);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Title cannot be empty!'),
-          backgroundColor: Colors.red,
-        ),
-      );
     }
   }
 

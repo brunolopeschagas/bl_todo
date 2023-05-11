@@ -11,10 +11,10 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   final TodoController _todoController = TodoController(TodoServiceMem());
   final TextEditingController _textEditingController = TextEditingController();
 
@@ -93,7 +93,7 @@ class _MyAppState extends State<MyApp> {
       var todo = Todo(
         title: title,
       );
-      _todoController.add(context, todo.title);
+      _todoController.add(todo.title);
       setState(() {
         _textEditingController.clear();
       });
